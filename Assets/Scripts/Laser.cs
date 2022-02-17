@@ -17,7 +17,8 @@ public class Laser : MonoBehaviour
     void Update()
     {
       
-        transform.Translate(Vector3.forward * Time.deltaTime * 20f);
+        transform.Translate(Vector3.forward * Time.deltaTime * 40f);
+        DestroyLaser();
         
         
     }
@@ -31,6 +32,11 @@ public class Laser : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void  OnTriggerEnter(Collider other)
+    { if(other.gameObject.CompareTag("Eye"))
+        
+    Destroy(gameObject);
+     }
     
   
     

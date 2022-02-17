@@ -7,14 +7,15 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] spawners;
     public GameObject ball;
     public GameObject cube;
-    private int nave = 1;
+   
+    private int nave = 2;
 
     
    
 
     void Start()
     {
-        InvokeRepeating  ("SpawnEnemy",1f,1f);   
+        InvokeRepeating  ("SpawnEnemy",1f,2f);   
     }
 
     // Update is called once per frame
@@ -36,14 +37,14 @@ public class EnemyManager : MonoBehaviour
          break;
          case 2:   Cubo();
          break;
-           
+         
         }
      }
         private void Bola()
         {
             int i=Random.Range(0,spawners.Length);
         
-            Instantiate(ball,spawners[i].transform.position,spawners[i].transform.rotation);
+            Instantiate(ball,spawners[i].transform.position,ball.transform.rotation);
         
         }
 
@@ -51,11 +52,11 @@ public class EnemyManager : MonoBehaviour
         {
             int i=Random.Range(0,spawners.Length);
         
-            Instantiate(cube,spawners[i].transform.position,spawners[i].transform.rotation);
+            Instantiate(cube,spawners[i].transform.position,cube.transform.rotation);
         
         }
 
-     
+      
         
      }
 
