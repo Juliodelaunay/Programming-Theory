@@ -6,8 +6,8 @@ public class BaseEnemy : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject explosion2;
-   private GameObject target;
-   public GameObject bullet;
+    public GameObject target;
+    public GameObject bullet;
 
 
     void Start()
@@ -18,15 +18,16 @@ public class BaseEnemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * 20f);
-        //Vector3 playerDirection = GetPlayerDirection();
-        //MoveTowards(playerDirection + Vector3.forward);
+    {   
+        // ABSTRACTION
 
+        MoveEnemy();
+        
+        DestroyEnemy();
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Laser"))
          {   Destroy(gameObject);
@@ -54,4 +55,17 @@ public class BaseEnemy : MonoBehaviour
     {
         Instantiate(bullet,transform.position,transform.rotation);
     }
+    protected void DestroyEnemy()
+    {
+        if ( transform.position.z < -45f)
+        {
+            Destroy (gameObject);
+        }
+    }
+    protected virtual void MoveEnemy()
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 20f);
+        }
+    
+    
 }

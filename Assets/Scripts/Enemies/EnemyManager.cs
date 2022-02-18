@@ -5,10 +5,9 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public GameObject[] spawners;
-    public GameObject ball;
-    public GameObject cube;
-   
-    private int nave = 2;
+    public GameObject enemy;
+    public GameObject enemyHard;
+    
 
     
    
@@ -32,27 +31,27 @@ public class EnemyManager : MonoBehaviour
             Instantiate(ball,spawners[i].transform.position,spawners[i].transform.rotation);
         }*/
 
-        switch (nave)
-        {case 1:   Bola();
+        switch (GameManager.level)
+        {case 1:   SpawnEnemyBase();
          break;
-         case 2:   Cubo();
+         case 2:   SpawnEnemyHard();
          break;
          
         }
      }
-        private void Bola()
+        private void SpawnEnemyBase()
         {
             int i=Random.Range(0,spawners.Length);
         
-            Instantiate(ball,spawners[i].transform.position,ball.transform.rotation);
+            Instantiate(enemy,spawners[i].transform.position,enemy.transform.rotation);
         
         }
 
-        private void Cubo()
+        private void SpawnEnemyHard()
         {
             int i=Random.Range(0,spawners.Length);
         
-            Instantiate(cube,spawners[i].transform.position,cube.transform.rotation);
+            Instantiate(enemyHard,spawners[i].transform.position,enemyHard.transform.rotation);
         
         }
 

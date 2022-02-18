@@ -21,7 +21,7 @@ public class RandomRotator : MonoBehaviour
 
     private void DestroyAsteroid()
     {
-        if (transform.position.z < 2f || transform.position.y > 300f || transform.position.y < -300f )
+        if (transform.position.z < 2f || transform.position.y > 200 || transform.position.y < -200f )
         {
             Destroy (gameObject);
         }
