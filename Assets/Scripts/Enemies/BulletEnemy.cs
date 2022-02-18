@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
     private GameObject target;
+    
     void Start()
     {
         target = GameObject.Find("Player");
@@ -39,9 +40,9 @@ public class BulletEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.shield -=  1;
+            GameManager.Shield -= 1;
             Destroy(gameObject);
-            Debug.Log(GameManager.shield);
+            Debug.Log(GameManager.Shield);
         }
     }
 }

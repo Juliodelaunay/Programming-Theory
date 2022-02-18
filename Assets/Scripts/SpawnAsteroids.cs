@@ -11,12 +11,7 @@ public class SpawnAsteroids : MonoBehaviour
         InvokeRepeating ("SpawnRocks",0,8f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+   
     private void SpawnRocks()
     {
         for (int x = 0 ; x < asteroids.Length ; x ++)

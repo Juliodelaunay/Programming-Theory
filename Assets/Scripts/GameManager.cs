@@ -6,14 +6,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject explosion;
-    public static int shield = 10;
+    
+    private  int shield = 10;
+    public static int Shield = 10;
+
     public static float score;
+    public static int level;
+    
     private Transform ship;
     private GameObject player;
-    public static int level;
 
-
-    private void Awake()
+    public static bool gameOver=false;
+   
+     private void Awake()
     {
         if (instance == null)
         { instance = this; }
@@ -21,9 +26,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        ship = GameObject.Find("Player").GetComponent<Transform>();
+        ship = GameObject.Find("T-Fighter").GetComponent<Transform>();
         player = GameObject.Find("Player").GetComponent<GameObject>();
-        level=2;
+        level=1;
     }
 
     // Update is called once per frame
@@ -31,17 +36,27 @@ public class GameManager : MonoBehaviour
     {   // ABSTRACTION
 
         GameOver();
+        GetShield();
+        
     }
 
-    private void GameOver()
+    public void GameOver()
     {
-        if ( shield <= 0)
-        {
-           // Time.timeScale=0;
-            Instantiate(explosion,ship);
-            Destroy(player);
+        if ( shield < 0)
+        {   
+          gameOver=true;
+          
         }
     }
+
+    private void GetShield()  // ENCAPSULATION
+    {
+        if (Shield != 0 )
+        {
+            shield = Shield;
+        }
+    }
+ 
 
 }
 

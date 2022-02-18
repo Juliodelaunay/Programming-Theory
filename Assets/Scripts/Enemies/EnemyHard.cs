@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHard : BaseEnemy // INHERITANCE
 
-{   public float length = 20f;
+{   public float length = 35f;
     private float startPosition;
     private float counter;
     

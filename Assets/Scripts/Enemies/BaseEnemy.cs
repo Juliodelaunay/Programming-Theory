@@ -41,15 +41,7 @@ public class BaseEnemy : MonoBehaviour
          }
     }
     
-     private Vector3 GetPlayerDirection()
-   {
-        return target.transform.position - transform.position;
-   }
-    private void MoveTowards(Vector3 newDirection)
-    {
-        Vector3 direction   = (target.transform.position - transform.position).normalized;
-        transform.position += 15f * newDirection.normalized * Time.deltaTime;
-    }
+    
 
     private void ShotEnemy()
     {

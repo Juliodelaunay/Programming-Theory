@@ -26,11 +26,6 @@ public class EnemyManager : MonoBehaviour
     
     private void SpawnEnemy()
      {
-      /* int i=Random.Range(0,spawners.Length);
-        {
-            Instantiate(ball,spawners[i].transform.position,spawners[i].transform.rotation);
-        }*/
-
         switch (GameManager.level)
         {case 1:   SpawnEnemyBase();
          break;

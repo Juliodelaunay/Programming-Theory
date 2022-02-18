@@ -247,7 +247,7 @@ Transform:
   m_Children:
   - {fileID: 377258705}
   m_Father: {fileID: 2012368038}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115132247
 GameObject:
@@ -278,7 +278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2012368038}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &115132250
 MonoBehaviour:
@@ -389,49 +389,6 @@ Transform:
   m_Father: {fileID: 415730134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &145451518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 145451519}
-  - component: {fileID: 145451520}
-  m_Layer: 0
-  m_Name: Pivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &145451519
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145451518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.57, y: 3.6, z: -23.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2012368038}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &145451520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145451518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9784c1b2a70dc4489d11145d9223ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &230219876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c9d60ead5e7e40141a3fb1ab9b18907c, type: 3}
@@ -449,14 +406,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e09e3e914c5774b995728b11976602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuerpoAvion: {fileID: 230219876}
-  velocidad: 10
-  speed: 45
-  lecturaHorizontal: 0
-  lecturaVertical: 0
-  lecturaLateral: 0
+  speed: 50
   turbina1: {fileID: 1053520042}
   turbina2: {fileID: 107620379}
+  maxLeft: -15
+  maxRight: 30
+  explosion: {fileID: 1150934714579380, guid: eeb284613318b7f439f26a7aab7a6da1, type: 3}
 --- !u!65 &230219878
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1156,7 +1111,7 @@ Transform:
   m_Children:
   - {fileID: 992405592}
   m_Father: {fileID: 2012368038}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251616612
 GameObject:

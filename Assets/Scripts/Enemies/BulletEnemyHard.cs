@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletEnemyHard : BulletEnemy  // INHERITANCE
 {
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         
@@ -22,9 +23,9 @@ public class BulletEnemyHard : BulletEnemy  // INHERITANCE
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.shield -=  3;
+            GameManager.Shield -=  3;
             Destroy(gameObject);
-            Debug.Log(GameManager.shield);
+            Debug.Log(GameManager.Shield);
         }
     }
 
