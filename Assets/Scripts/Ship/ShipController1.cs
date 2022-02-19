@@ -12,6 +12,8 @@ public class ShipController1 : MonoBehaviour
     [SerializeField] private float maxLeft=-25f;
     [SerializeField] private float maxRight=25f;
     public GameObject explosion;
+    public GameObject panelOver;
+    private bool gameOver;
     
    
    
@@ -27,6 +29,7 @@ public class ShipController1 : MonoBehaviour
     void Update()
     {   
        MoveShip();      //ASBTRACTION
+       GameOverr();
        GameOver();
 
     }    
@@ -44,12 +47,25 @@ public class ShipController1 : MonoBehaviour
     private void GameOver()
     {
         
-            if (GameManager.gameOver==true)
-            {   
+            if (gameOver==true)
+            {   GameManager.Shield=10;
+                GameManager.Score=0;
                 Instantiate(explosion,transform.position,transform.rotation);
                 Destroy(gameObject);
+                panelOver.SetActive(true);
+
+
+
             }
     } 
+     public void GameOverr()
+    {
+        if ( GameManager.Shield < 0)
+        {   
+           gameOver=true;
+          
+       }
+    }
         
         
 

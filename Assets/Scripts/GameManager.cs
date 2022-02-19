@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -10,13 +11,19 @@ public class GameManager : MonoBehaviour
     private  int shield = 10;
     public static int Shield = 10;
 
-    public static float score;
+    private int score;
+    public static int Score;
+
+    
     public static int level;
     
     private Transform ship;
     private GameObject player;
 
     public static bool gameOver=false;
+
+    public GameObject panelMenu;
+    
    
      private void Awake()
     {
@@ -29,34 +36,65 @@ public class GameManager : MonoBehaviour
         ship = GameObject.Find("T-Fighter").GetComponent<Transform>();
         player = GameObject.Find("Player").GetComponent<GameObject>();
         level=1;
+        shield=10;
+        Shield=10;
+       
     }
 
     // Update is called once per frame
     void Update()
     {   // ABSTRACTION
 
-        GameOver();
-        GetShield();
         
+        GetShield();
+        ChangeLevel();
+        GetScore();
+        Debug.Log(score);
+        MainMenu();
     }
 
-    public void GameOver()
+   /* public void GameOver()
     {
         if ( shield < 0)
         {   
-          gameOver=true;
+           gameOver=true;
           
-        }
-    }
+       }
+    }*/
 
     private void GetShield()  // ENCAPSULATION
     {
-        if (Shield != 0 )
+        if (Shield != 0 && Shield > -10)
         {
             shield = Shield;
         }
     }
- 
+
+    private void ChangeLevel()
+    {
+        if ( score > 100)
+        {
+            level=2;
+        }
+    }
+
+    private void GetScore()  // ENCAPSULATION
+    {
+        if (Score > 0 )
+        {
+            score = Score;
+        }
+    }
+
+    private void MainMenu()
+    {
+        if ( Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale=0;
+            panelMenu.SetActive(true);
+        }  
+    }
+    
 
 }
 

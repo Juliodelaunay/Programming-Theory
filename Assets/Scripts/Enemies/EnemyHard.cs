@@ -29,4 +29,18 @@ public class EnemyHard : BaseEnemy // INHERITANCE
     {   counter += Time.deltaTime * 10f;
         transform.position=new Vector3(Mathf.PingPong(counter,length) + startPosition,transform.position.y,transform.position.z);
     }
+    public override void OnTriggerEnter(Collider other)  // POLYMORPHISM
+    {
+        if (other.gameObject.CompareTag("Laser"))
+         {   Destroy(gameObject);
+         Instantiate(explosion,transform.position,transform.rotation);
+         GameManager.Score +=20;
+         }
+         if(other.gameObject.CompareTag("Player"))
+         {
+             Destroy(gameObject);
+             Destroy(target);
+             Instantiate(explosion2,transform.position,transform.rotation);
+         }
+    }
 }

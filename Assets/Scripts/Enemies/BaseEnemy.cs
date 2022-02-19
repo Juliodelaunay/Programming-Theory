@@ -13,7 +13,7 @@ public class BaseEnemy : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player");
-        InvokeRepeating ("ShotEnemy",1 , 4);
+        InvokeRepeating ("ShotEnemy",1 , 2);
     }
 
     // Update is called once per frame
@@ -27,11 +27,12 @@ public class BaseEnemy : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Laser"))
          {   Destroy(gameObject);
          Instantiate(explosion,transform.position,transform.rotation);
+         GameManager.Score +=10;
          }
          if(other.gameObject.CompareTag("Player"))
          {
