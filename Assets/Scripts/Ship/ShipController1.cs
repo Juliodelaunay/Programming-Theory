@@ -18,6 +18,10 @@ public class ShipController1 : MonoBehaviour
     private bool gameOver;
     public GameObject shieldS;
     public float shieldShip=10;
+     public string ScoreText;
+    public Text scoreText;
+    protected SoundManager soundManager;
+    private bool play;
 
     
    
@@ -27,6 +31,7 @@ public class ShipController1 : MonoBehaviour
     {
         turbina1.SetActive(true);
         turbina2.SetActive(true);
+        soundManager = FindObjectOfType<SoundManager>();
         
 
     }
@@ -36,6 +41,8 @@ public class ShipController1 : MonoBehaviour
        MoveShip();      //ASBTRACTION
        GameOverr();
        GameOver();
+       ScoreText = GameManager.Score.ToString();
+       scoreText.text = ScoreText;
       
 
     }    
@@ -55,7 +62,6 @@ public class ShipController1 : MonoBehaviour
         
             if (gameOver==true)
             {   GameManager.Shield=10;
-                GameManager.Score=0;
                 Instantiate(explosion,transform.position,transform.rotation);
                 Destroy(gameObject);
                 panelOver.SetActive(true);
@@ -69,7 +75,10 @@ public class ShipController1 : MonoBehaviour
     {
         if ( GameManager.Shield < 0)
         {   
-           gameOver=true;
+            soundManager.SeleccionAudio(0,1.4f);
+            play = true;
+            gameOver=true;
+
           
        }
     }
@@ -78,6 +87,8 @@ public class ShipController1 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+             soundManager.SeleccionAudio(0,1.4f);
+             play = true;
             gameOver=true;
         }
     }

@@ -23,7 +23,7 @@ public class Laser : MonoBehaviour
     }
    
     private void  OnTriggerEnter(Collider other)
-    { if(other.gameObject.CompareTag("Eye"))
+    { if(other.gameObject.CompareTag("Enemy"))
         
     Destroy(gameObject);
     }

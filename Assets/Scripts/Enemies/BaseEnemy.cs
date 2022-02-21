@@ -10,6 +10,8 @@ public class BaseEnemy : MonoBehaviour
     public GameObject bullet;
     public GameObject Sshield;
     public GameObject Menu;
+     protected SoundManager soundManager;
+    protected bool play;
 
 
     void Start()
@@ -17,7 +19,8 @@ public class BaseEnemy : MonoBehaviour
         target = GameObject.Find("Player");
         InvokeRepeating ("ShotEnemy",1 , 2);
         Sshield=GameObject.Find("Shield");
-        //Sshield.SetActive(false);
+        soundManager = FindObjectOfType<SoundManager>();
+        
     }
 
     // Update is called once per frame
@@ -34,18 +37,14 @@ public class BaseEnemy : MonoBehaviour
     public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Laser"))
-         {   Destroy(gameObject);
-         Instantiate(explosion,transform.position,transform.rotation);
-         GameManager.Score +=10;
-         }
-         /*if(other.gameObject.CompareTag("Player"))
          {
-             Destroy(gameObject);
-             Destroy(target);
-             Destroy(Sshield);
-             Instantiate(explosion2,transform.position,transform.rotation);
-             Sshield.SetActive(false);
-         }*/
+          soundManager.SeleccionAudio(1,1f);
+          play = true;
+          Destroy(gameObject);
+          Instantiate(explosion,transform.position,transform.rotation);
+          GameManager.Score +=10;
+         }
+         
     }
     
     

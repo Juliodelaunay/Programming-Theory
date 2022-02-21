@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BulletEnemyHard : BulletEnemy  // INHERITANCE
 {
+  
     
 
     void Start()
     {
-        
+       soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -23,9 +24,12 @@ public class BulletEnemyHard : BulletEnemy  // INHERITANCE
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Instantiate (impact,transform.position,transform.rotation);
             GameManager.Shield -=  3;
+            soundManager.SeleccionAudio(1,1f);
+            play = true;
             Destroy(gameObject);
-            Debug.Log(GameManager.Shield);
+            
         }
     }
 

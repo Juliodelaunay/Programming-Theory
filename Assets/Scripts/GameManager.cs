@@ -17,10 +17,7 @@ public class GameManager : MonoBehaviour
     
     public static int level;
     
-    private Transform ship;
-    private GameObject player;
-
-    public static bool gameOver=false;
+   
 
     public GameObject panelMenu;
     
@@ -28,17 +25,17 @@ public class GameManager : MonoBehaviour
      private void Awake()
     {
         if (instance == null)
-        { instance = this; }
-       DontDestroyOnLoad(gameObject);
+        { instance = this; 
+        DontDestroyOnLoad(gameObject);}
     }
     void Start()
     {
-        ship = GameObject.Find("T-Fighter").GetComponent<Transform>();
-        player = GameObject.Find("Player").GetComponent<GameObject>();
+       
         level=1;
         shield=10;
         Shield=10;
         Score=0;
+        score=0;
        
     }
 
@@ -50,18 +47,10 @@ public class GameManager : MonoBehaviour
         GetShield();
         ChangeLevel();
         GetScore();
-        Debug.Log(score);
         MainMenu();
     }
 
-   /* public void GameOver()
-    {
-        if ( shield < 0)
-        {   
-           gameOver=true;
-          
-       }
-    }*/
+  
 
     private void GetShield()  // ENCAPSULATION
     {
@@ -81,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void GetScore()  // ENCAPSULATION
     {
-        if (Score > 0 )
+        if (Score >= 0 )
         {
             score = Score;
         }

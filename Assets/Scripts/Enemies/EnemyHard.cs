@@ -13,6 +13,7 @@ public class EnemyHard : BaseEnemy // INHERITANCE
         target = GameObject.Find("Player");
         startPosition=transform.position.x;
         InvokeRepeating ("ShotEnemy",1 , 4);
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,9 @@ public class EnemyHard : BaseEnemy // INHERITANCE
     public override void OnTriggerEnter(Collider other)  // POLYMORPHISM
     {
         if (other.gameObject.CompareTag("Laser"))
-         {   Destroy(gameObject);
+         {  soundManager.SeleccionAudio(1,1f);
+          play = true;
+              Destroy(gameObject);
          Instantiate(explosion,transform.position,transform.rotation);
          GameManager.Score +=20;
          }
