@@ -36,11 +36,11 @@ public class EnemyHard : BaseEnemy // INHERITANCE
          Instantiate(explosion,transform.position,transform.rotation);
          GameManager.Score +=20;
          }
-         if(other.gameObject.CompareTag("Player"))
+        /* if(other.gameObject.CompareTag("Player"))
          {
              Destroy(gameObject);
              Destroy(target);
              Instantiate(explosion2,transform.position,transform.rotation);
-         }
+         }*/
     }
 }

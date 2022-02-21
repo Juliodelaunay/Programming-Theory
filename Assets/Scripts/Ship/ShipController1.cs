@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class ShipController1 : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class ShipController1 : MonoBehaviour
     public GameObject explosion;
     public GameObject panelOver;
     private bool gameOver;
+    public GameObject shieldS;
+    public float shieldShip=10;
+
     
    
    
@@ -31,6 +36,7 @@ public class ShipController1 : MonoBehaviour
        MoveShip();      //ASBTRACTION
        GameOverr();
        GameOver();
+      
 
     }    
 
@@ -53,6 +59,7 @@ public class ShipController1 : MonoBehaviour
                 Instantiate(explosion,transform.position,transform.rotation);
                 Destroy(gameObject);
                 panelOver.SetActive(true);
+                shieldS.SetActive(false);
 
 
 
@@ -66,7 +73,14 @@ public class ShipController1 : MonoBehaviour
           
        }
     }
-        
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            gameOver=true;
+        }
+    }
         
 
     

@@ -10393,7 +10393,7 @@ GameObject:
   - component: {fileID: 3137423901713506557}
   m_Layer: 0
   m_Name: MachineGunRobot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10460,4 +10460,6 @@ MonoBehaviour:
   explosion2: {fileID: 1150934714579380, guid: eeb284613318b7f439f26a7aab7a6da1, type: 3}
   target: {fileID: 0}
   bullet: {fileID: 7826882149562503279, guid: cc3a1c6e47569f94b9176f62500a805d, type: 3}
+  Sshield: {fileID: 0}
+  Menu: {fileID: 0}
   length: 20

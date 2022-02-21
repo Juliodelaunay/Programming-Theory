@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     private  int shield = 10;
     public static int Shield = 10;
 
-    private int score;
-    public static int Score;
+    private int score=0;
+    public static int Score=0;
 
     
     public static int level;
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         level=1;
         shield=10;
         Shield=10;
+        Score=0;
        
     }
 
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void ChangeLevel()
     {
-        if ( score > 100)
+        if ( score > 90)
         {
             level=2;
         }
@@ -94,6 +95,8 @@ public class GameManager : MonoBehaviour
             panelMenu.SetActive(true);
         }  
     }
+       
+    
     
 
 }

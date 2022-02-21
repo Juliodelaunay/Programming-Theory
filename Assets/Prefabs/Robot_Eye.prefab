@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5046845355888931029}
   m_Layer: 0
   m_Name: Robot_Eye
-  m_TagString: Eye
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976, type: 3}
   explosion2: {fileID: 1150934714579380, guid: eeb284613318b7f439f26a7aab7a6da1, type: 3}
+  target: {fileID: 0}
   bullet: {fileID: 7826882149562503279, guid: fcb037df44042e3439bf1b5bfb2b41a2, type: 3}
+  Sshield: {fileID: 0}
+  Menu: {fileID: 0}
 --- !u!135 &6287349282714108228
 SphereCollider:
   m_ObjectHideFlags: 0

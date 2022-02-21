@@ -8,12 +8,16 @@ public class BaseEnemy : MonoBehaviour
     public GameObject explosion2;
     public GameObject target;
     public GameObject bullet;
+    public GameObject Sshield;
+    public GameObject Menu;
 
 
     void Start()
     {
         target = GameObject.Find("Player");
         InvokeRepeating ("ShotEnemy",1 , 2);
+        Sshield=GameObject.Find("Shield");
+        //Sshield.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,12 +38,14 @@ public class BaseEnemy : MonoBehaviour
          Instantiate(explosion,transform.position,transform.rotation);
          GameManager.Score +=10;
          }
-         if(other.gameObject.CompareTag("Player"))
+         /*if(other.gameObject.CompareTag("Player"))
          {
              Destroy(gameObject);
              Destroy(target);
+             Destroy(Sshield);
              Instantiate(explosion2,transform.position,transform.rotation);
-         }
+             Sshield.SetActive(false);
+         }*/
     }
     
     
